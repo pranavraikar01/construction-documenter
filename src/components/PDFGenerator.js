@@ -34,14 +34,19 @@ const PDFGenerator = () => {
 
       // First page - site details
       const detailsSection = document.getElementById("details-section");
-      const detailsCanvas = await html2canvas(detailsSection, { scale: 2 });
-      const detailsImgData = detailsCanvas.toDataURL("image/png");
+      const detailsCanvas = await html2canvas(detailsSection, {
+        scale: 1.5,
+        quality: 0.8, // Reduced quality for smaller file size
+        logging: false,
+        useCORS: true,
+      });
+      const detailsImgData = detailsCanvas.toDataURL("image/jpeg");
 
       const detailsImgHeight =
         (detailsCanvas.height * pdfWidth) / detailsCanvas.width;
       pdf.addImage(
         detailsImgData,
-        "PNG",
+        "JPEG",
         margins,
         margins,
         pdfWidth - margins * 2,
@@ -53,14 +58,19 @@ const PDFGenerator = () => {
         pdf.addPage();
 
         const imageSection = document.getElementById(`image-section-${i}`);
-        const imageCanvas = await html2canvas(imageSection, { scale: 2 });
-        const imageImgData = imageCanvas.toDataURL("image/png");
+        const imageCanvas = await html2canvas(imageSection, {
+          scale: 1.5,
+          quality: 0.8, // Reduced quality for smaller file size
+          logging: false,
+          useCORS: true,
+        });
+        const imageImgData = imageCanvas.toDataURL("image/jpeg");
 
         const imageImgHeight =
           (imageCanvas.height * pdfWidth) / imageCanvas.width;
         pdf.addImage(
           imageImgData,
-          "PNG",
+          "JPEG",
           margins,
           margins,
           pdfWidth - margins * 2,

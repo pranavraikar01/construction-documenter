@@ -14,10 +14,11 @@ function App() {
       <div className="app">
         <header className="app-header">
           <h1>Construction Site Documenter</h1>
-          <p>
+          {/* <p>
             Document your construction sites and generate PDFs without a
             database
-          </p>
+          </p> */}
+          <p>Document your construction sites</p>
         </header>
 
         <nav className="app-nav">
@@ -71,7 +72,7 @@ function App() {
         </main>
 
         <footer className="app-footer">
-          <p>Construction Site Documenter - PWA Application</p>
+          &copy; 2025 Pranav Raikar. All Rights Reserved.
         </footer>
       </div>
     </SiteProvider>

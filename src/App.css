@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  background-color: #3f51b5;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.app-header h1 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.app-header p {
+  opacity: 0.8;
+  font-size: 1rem;
+}
+
+.app-nav {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.app-nav ul {
+  display: flex;
+  list-style: none;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.app-nav li {
+  flex: 1;
+}
+
+.app-nav button {
+  width: 100%;
+  padding: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #666;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.app-nav button:hover {
+  background-color: #f5f5f5;
+  color: #3f51b5;
+}
+
+.app-nav button.active {
+  color: #3f51b5;
+  border-bottom: 3px solid #3f51b5;
+  font-weight: 500;
+}
+
+.app-content {
+  flex: 1;
+  padding: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.tab-content {
+  animation: fadeIn 0.3s;
+}
+
+.app-footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .app-header p {
+    font-size: 0.9rem;
+  }
+
+  .app-nav button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-content {
+    padding: 15px 10px;
+  }
+
+  .app-nav ul {
+    flex-direction: row;
+  }
+
+  .app-nav button {
+    padding: 8px 5px;
+    font-size: 13px;
+  }
+}

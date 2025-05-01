@@ -1,0 +1,132 @@
+.pdf-generator-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.pdf-generator-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.generate-pdf-button {
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.generate-pdf-button:hover {
+  background-color: #d81b60;
+}
+
+.loading-indicator {
+  display: none;
+  margin: 15px 0;
+  padding: 10px;
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  border-radius: 4px;
+  color: #856404;
+}
+
+/* PDF Content Styling */
+.pdf-content {
+  visibility: hidden;
+  position: absolute;
+  left: -9999px;
+  width: 210mm; /* A4 width */
+  background-color: white;
+  font-family: Arial, sans-serif;
+}
+
+.pdf-section {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.pdf-title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.pdf-subtitle {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.pdf-details {
+  margin-bottom: 20px;
+}
+
+.pdf-detail-item {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.pdf-description {
+  margin-top: 15px;
+}
+
+.pdf-description p {
+  margin-top: 5px;
+  line-height: 1.5;
+}
+
+.pdf-image-section {
+  page-break-before: always;
+}
+
+.pdf-image-title {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.pdf-image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.pdf-image {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+}
+
+.pdf-image-description {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.pdf-image-timestamp {
+  margin-top: 15px;
+  color: #777;
+}
+
+@media (max-width: 480px) {
+  .pdf-generator-container {
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  .generate-pdf-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+}

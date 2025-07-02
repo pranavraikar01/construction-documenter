@@ -71,6 +71,15 @@ export const SiteProvider = ({ children }) => {
     );
   };
 
+  // Function to update image data + measurements
+  const updateImageData = (id, newImageData, measurements) => {
+    setImages(
+      images.map((image) =>
+        image.id === id ? { ...image, data: newImageData, measurements } : image
+      )
+    );
+  };
+
   // Function to clear all data
   const clearAllData = () => {
     setSiteDetails({
@@ -94,6 +103,7 @@ export const SiteProvider = ({ children }) => {
         addImage,
         removeImage,
         updateImageDescription,
+        updateImageData, // new clean function
         clearAllData,
       }}
     >

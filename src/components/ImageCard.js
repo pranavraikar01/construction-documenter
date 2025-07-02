@@ -1,13 +1,15 @@
 import React, { useState, useContext } from "react";
 import { SiteContext } from "../context/SiteContext";
 import "./ImageCard.css";
+import MeasurementCanvas from "./MeasurementCanvas";
 
 const ImageCard = ({ image }) => {
-  const { removeImage, updateImageDescription } = useContext(SiteContext);
+  const { removeImage, updateImageDescription, updateImageData } =
+    useContext(SiteContext);
   const [isEditing, setIsEditing] = useState(false);
   const [editedDescription, setEditedDescription] = useState(image.description);
+  const [showMeasurement, setShowMeasurement] = useState(false);
 
-  // Format the timestamp
   const formattedDate = new Date(image.timestamp).toLocaleString();
 
   const handleSaveDescription = () => {
@@ -18,6 +20,11 @@ const ImageCard = ({ image }) => {
   const handleCancel = () => {
     setEditedDescription(image.description);
     setIsEditing(false);
+  };
+
+  const handleMeasurementSave = (annotatedImage, measurements) => {
+    updateImageData(image.id, annotatedImage, measurements);
+    setShowMeasurement(false);
   };
 
   return (
@@ -66,10 +73,24 @@ const ImageCard = ({ image }) => {
               >
                 Delete
               </button>
+              <button
+                onClick={() => setShowMeasurement(true)}
+                className="measure-button"
+              >
+                📏 Measure
+              </button>
             </div>
           </div>
         )}
       </div>
+
+      {showMeasurement && (
+        <MeasurementCanvas
+          imageSrc={image.data}
+          onClose={() => setShowMeasurement(false)}
+          onSave={handleMeasurementSave}
+        />
+      )}
     </div>
   );
 };

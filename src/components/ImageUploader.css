@@ -112,6 +112,11 @@
     font-size: 14px;
   }
 
+  .file-input-label {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
   .image-preview {
     max-height: 200px;
   }
